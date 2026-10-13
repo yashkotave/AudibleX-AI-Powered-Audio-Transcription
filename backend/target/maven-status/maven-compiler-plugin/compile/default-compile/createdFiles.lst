@@ -1,0 +1,8 @@
+com\audiblex\AudibleXApplication.class
+com\audiblex\service\TranscriptionService.class
+com\audiblex\config\WebConfig.class
+com\audiblex\dto\TranscriptionResponse.class
+com\audiblex\entity\Transcription.class
+com\audiblex\repository\TranscriptionRepository.class
+com\audiblex\controller\TranscriptionController.class
+com\audiblex\dto\UpdateTranscriptionRequest.class
