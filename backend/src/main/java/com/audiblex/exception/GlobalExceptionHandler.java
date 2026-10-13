@@ -35,9 +35,14 @@ public class GlobalExceptionHandler {
                 Instant.now(), 400, "Request validation failed.", details));
     }
 
-    @ExceptionHandler({MaxUploadSizeExceededException.class, MultipartException.class})
-    ResponseEntity<ApiError> handleUploadSize(Exception exception, HttpServletRequest request) {
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    ResponseEntity<ApiError> handleUploadSize(MaxUploadSizeExceededException exception, HttpServletRequest request) {
         return error(HttpStatus.PAYLOAD_TOO_LARGE, "Audio upload exceeds the 25 MB limit.", request);
+    }
+
+    @ExceptionHandler(MultipartException.class)
+    ResponseEntity<ApiError> handleMalformedMultipart(MultipartException exception, HttpServletRequest request) {
+        return error(HttpStatus.BAD_REQUEST, "The multipart audio upload could not be read.", request);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

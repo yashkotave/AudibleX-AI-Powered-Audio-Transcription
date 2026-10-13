@@ -15,6 +15,8 @@ export default function App() {
   const [historyError, setHistoryError] = useState('')
   const [actionError, setActionError] = useState('')
   const [query, setQuery] = useState('')
+  const dateLabel = new Intl.DateTimeFormat(undefined, { weekday: 'long', month: 'long', day: 'numeric' })
+    .format(new Date()).toUpperCase()
 
   const refresh = useCallback(async () => {
     setLoading(true)
@@ -83,7 +85,7 @@ export default function App() {
       <>
         {activePage === 'Home' && <>
           <div className="welcome-row">
-            <div><span className="eyebrow">TUESDAY, YOUR AUDIO WORKSPACE</span><h1>Make every word <span>count.</span></h1><p>Turn the moments you record into ideas you can work with.</p></div>
+            <div><span className="eyebrow">{dateLabel} · YOUR AUDIO WORKSPACE</span><h1>Make every word <span>count.</span></h1><p>Turn the moments you record into ideas you can work with.</p></div>
             <div className="welcome-orb"><span className="orb-ring ring-one" /><span className="orb-ring ring-two" /><span className="orb-center"><Icon name="audio" size={27} /></span></div>
           </div>
           <UploadCard onTranscribe={handleTranscribe} busy={busy} />

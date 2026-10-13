@@ -16,16 +16,16 @@ public class Transcription {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 255)
+    @Column(name = "title", nullable = false, length = 255)
     private String title;
 
-    @Column(nullable = false, columnDefinition = "LONGTEXT")
+    @Column(name = "transcript", nullable = false, columnDefinition = "LONGTEXT")
     private String transcript;
 
-    @Column(nullable = false, length = 255)
+    @Column(name = "audioFileName", nullable = false, length = 255)
     private String audioFileName;
 
-    @Column(nullable = false, updatable = false)
+    @Column(name = "createdAt", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     protected Transcription() {

@@ -6,7 +6,6 @@ import com.audiblex.service.TranscriptionService;
 import jakarta.validation.Valid;
 import java.net.URI;
 import java.util.List;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -47,7 +47,7 @@ public class TranscriptionController {
     @PutMapping("/{id}")
     public TranscriptionResponse update(
             @PathVariable Long id,
-            @Valid @org.springframework.web.bind.annotation.RequestBody UpdateTranscriptionRequest request) {
+            @Valid @RequestBody UpdateTranscriptionRequest request) {
         return service.update(id, request);
     }
 
